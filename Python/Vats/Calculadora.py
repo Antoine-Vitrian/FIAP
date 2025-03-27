@@ -1,11 +1,11 @@
 import math
 
 def calculadora():
-    entrar = input("Gostaria de entrar na calculadora(s/n)")
-        if entrar == "s" or entrar == "S":
-        contador = 0
+    entrar = input("Gostaria de entrar na calculadora(s/n): ")
+    contador = 0
+    if entrar == "s" or entrar == "S":
         while True:
-            usuario = input("Digite seu nome de usuário")
+            usuario = input("Digite seu nome de usuário: ")
             menu = print('''
             1. Adição
             2. Subtração
