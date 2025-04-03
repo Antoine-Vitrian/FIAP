@@ -105,9 +105,59 @@ def numeros_cresc_3():
 
     print(menor,meio,maior)
 
-numeros_cresc_3()
+def numeros_cresc_4():
+    print("Digite números diferentes")
+    a = int(input("Digite o primeiro número: "))
+    b = int(input("Digite o segundo número: "))
+    c = int(input("Digite o terceiro número: "))
+    d = int(input("Digite o quarto número: "))
 
+    if a > b:
+        aux = a
+        a = b
+        b = aux
+    if b > c:
+        aux = b
+        b = c
+        c = aux
+    if c > d:
+        aux = c
+        c = d
+        d = aux
+    if a > b:
+        aux = a
+        a = b
+        b = aux
+    if b > c:
+        aux = b
+        b = c
+        c = aux
+    if a > b:
+        aux = a
+        a = b
+        b = aux
+    
+    print(a,b,c,d)
 
+def numeros_cresc_5():
+    print("Digite números diferentes")
+    a = int(input("Digite o primeiro número: "))
+    b = int(input("Digite o segundo número: "))
+    c = int(input("Digite o terceiro número: "))
+
+    if a > b:
+        aux = a
+        a = b
+        b = aux
+    if b > c:
+        aux = b
+        b = c
+        c = aux
+    if a > b:
+        aux = a
+        a = b
+        b = aux
+    print(a,b,c)
 
 # Ex. 6 
 def peso():

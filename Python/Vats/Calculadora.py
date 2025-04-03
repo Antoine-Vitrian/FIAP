@@ -4,8 +4,8 @@ def calculadora():
     entrar = input("Gostaria de entrar na calculadora(s/n): ")
     contador = 0
     if entrar == "s" or entrar == "S":
+        usuario = input("Digite seu nome de usuário: ")
         while True:
-            usuario = input("Digite seu nome de usuário: ")
             menu = print('''
             1. Adição
             2. Subtração
@@ -13,19 +13,36 @@ def calculadora():
             4. Divisão
             5. Potenciação
             6. Raiz quadrada
-            7. Sair''')
+            7. Equação de 2° grau
+            8. Sair''')
             print(menu)
             operacao = input("Escolha uma operação(digite o índice): ")
-            if operacao not in ("1", "2", "3", "4", "5", "6", "7"):
+            if operacao not in ("1", "2", "3", "4", "5", "6", "7", "8"):
                 print("Esta opção não existe!")
                 continue
-            if operacao == "7":
+            if operacao == "8":
                 sair = input("Você realmente gostaria de sair da calculadora(s/n): ")
                 if sair == "s" or sair == "S":
                     break
                 if sair == "n" or sair == "N":
                     continue
             contador += 1
+            if operacao == "7":
+                print("Ex. de equação: ax² +/- bx +/- c")
+                print("Lembre de usar (+/-) para definir se o número é positivo ou negativo")
+                a = int(input("Digite a:\n-> "))
+                b = int(input("Digite b:\n-> "))
+                c = int(input("Digite c:\n-> "))
+
+                delta = (b**2)-(4*a*c)
+                if delta < 0:
+                    print("ERRO!\nEssa calculadora não faz operações com números complexos!")
+                else:
+                    x1 = (-b + (delta**(1/2)))/(2*a)
+                    x2 = (-b - (delta**(1/2)))/(2*a)
+
+                    print(f"A equação {a}x²{b}x{c}=0 tem como resultados:\nx1 = {x1}\nx2 = {x2}")
+                    continue
             if operacao == "6":
                 raiz = int(input("Digite um número: "))
                 raiz_calculada = math.sqrt(raiz)
