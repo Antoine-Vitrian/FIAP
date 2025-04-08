@@ -1,0 +1,29 @@
+div {
+    border: solid 1px black;
+    display: inline-block;
+    font-size: 32px;
+    font-family: Arial;
+    width: 100px;
+    height: 110px; 
+    /* Overflow */
+    overflow: hidden;
+    /* Também existe o Visible, Scroll, Hidden e Auto */
+
+    /* bordas */
+    border: dashed 2px black; 
+}
+
+.texto {
+    height: 120px;
+    width: 200px;
+    border: dotted 2px black;
+    overflow: scroll;
+    margin: 5px 8px;
+    padding: 6px 9px;
+}
+p {
+    display: inline;
+}
+span {
+    display: block;
+}
