@@ -79,3 +79,5 @@ def calculadora():
 
 # Chamando a função calculadora
 calculadora()
+
+# login para a calculadora
