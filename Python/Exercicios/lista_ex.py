@@ -6,7 +6,14 @@ def nota():
         nota = int(input("Digite uma nota: "))
     print(nota)
 
-# Ex. 02 a fazer
+# Ex. 02 a fazer 
+def inf():
+    nome = input("Digite seu nome\n-> ")
+    idade = input("Digite sua idade\n-> ")
+    salario = input("Digite seu salario\n-> ")
+    sexo = input("Digite seu sexo(m/f)\n-> ")
+    est_civil = input("Digite seu estado cívil(s/c/v/d)\n-> ")
+
 
 
 
@@ -43,7 +50,7 @@ def numeros():
 
     print(f"Soma: {soma}\nMédia: {media}")
 
-#  Ex. 05
+# Ex. 05
 def intervalo():
     while True:
         n1 = input("Digite um número: ")
@@ -94,16 +101,18 @@ def tabuada():
             print("Digite um valor válido!!!")
             continue
 
-# Ex. 08 a fazer
+# Ex. 08
 def fibonacci():
-    fibonacci =  1
-    print(fibonacci)
-    print(fibonacci)
-    contador = 1
-
+    n1 = 1
+    n2 = 1
+    print(f"1° {n1}\n2° {n2}")
+    contador = 2
     while contador < 90:
+        proximo = n1 + n2
+        n1 = n2
+        n2 = proximo
         contador += 1
-        fibonacci = fibonacci + fibonacci
+        print(f"{contador}° {proximo}")
 
 # Ex. 09 
 def fatorial_f():
@@ -133,11 +142,11 @@ def pares_impares():
         contador += 1
     print(f"Você digitou:\nN° Pares: {pares}\nN° Ímpares: {10 - pares}")
 
-# Ex. 11
-def primo():
-    while True:
-        numero = input("Descubra se o número é primo: ")
-        if numero.isnumeric():
+# Ex. 11 a fazer 
+# def primo():
+#     while True:
+#         numero = input("Descubra se o número é primo: ")
+#         if numero.isnumeric():
 
 # Ex. 12
 def notas_n():
@@ -163,6 +172,63 @@ def notas_n():
         break
     print(f"A média final foi {media}")
 
+# Ex. 13
+def salario():
+        salario = 1000
+        ano = 1995
+        aumento = 0.015
+        while True:
+            while ano <= 2025:
+                print(f"{ano} R${round(salario, 2)}")
+                salario = salario * (1 + aumento)
+                aumento = aumento * 2
+                ano += 1
+            sair = input("Gostaria de inserir um novo salário inicial(s/n)\n-> ")
+            if sair == "s":
+                while True:
+                    salario = input("Digite seu salário inicial\n-> ")
+                    if salario.isnumeric() == False:
+                        print("Valor inválido")
+                        continue
+                    else:
+                        salario = int(salario)
+                        break
+                continue
+            else:
+                break
 
+# Ex. 14
+def intervalo_numbers():
+    contador = 0
+    int_1 = 0
+    int_2 = 0
+    int_3 = 0
+    int_4 = 0
+    int_5 = 0
+    while True:
+        valor = input(f"Digite {contador+1}° número\n-> ")
+        if valor.isnumeric() == True:
+            valor = int(valor)
+            if valor >= 0 and valor <= 25:
+                int_1 += 1
+            elif valor >= 26 and valor <= 50:
+                int_2 += 1
+            elif valor >= 51 and valor <= 75:
+                int_3 += 1
+            elif valor >= 76 and valor <= 100:
+                int_4 += 1
+            elif valor > 100:
+                int_5 += 1
+            contador += 1
+        else:
+            break
+    print(f"[0-25]: {int_1}")
+    print(f"[26-50]: {int_2}")
+    print(f"[51-75]: {int_3}")
+    print(f"[76-100]: {int_4}")
+    print(f"[101-...]: {int_5}")
+
+# Ex. 15 a fazer
+    
     
         
