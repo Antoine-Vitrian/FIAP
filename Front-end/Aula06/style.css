@@ -1,0 +1,68 @@
+div p:hover {
+    color:orange;
+    cursor: pointer;
+}
+#a:active {
+    color: aqua;
+}
+#b:visited {
+    color: red;
+}
+div input:focus{
+    background-color: yellow;
+}
+li:first-child {
+    color: blue;
+}
+li:last-child {
+    color: yellow;
+}
+li:nth-child(2n) {
+    color: blueviolet;
+}
+li:not(.meu_item) {
+    color: aliceblue;
+}
+input[type="radio"]:checked {
+    margin-left: 100px;
+}
+input[type="checkbox"]:checked {
+    width: 100px;;
+}
+option:checked {
+    color: red;
+    background-color: black;
+}
+input:disabled {
+    background: #ccc;
+}
+input[type="text"]:disabled {
+    background: #ccc;
+}
+input[type=email]:invalid {
+    background: orange;
+}
+input[type=email]:valid {
+    background: green;
+}
+input:required {
+    background: red;
+}
+
+/* Pseudo-elementos */
+
+input::placeholder {
+    color: violet;
+}
+#c p::first-line {
+    color: red;
+    text-transform: uppercase;
+}
+#c p::selection {
+    color: yellow;
+    background-color: blue;
+}
+li::marker {
+    color: blue;
+    font-size: 15px;
+}
