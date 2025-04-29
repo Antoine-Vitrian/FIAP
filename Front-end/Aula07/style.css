@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+}
+body{
+    width: 100%;
+    background-color: cadetblue;
+}
+.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+#cartao{
+    height: 400px;
+    width: 250px;
+    border: 2px solid rgb(36, 36, 36);
+    border-radius: 10px;
+}
+#cartao img {
+    width: 100%;
+    background-color: aliceblue;
+    color: black;
+}
+div #cartao:first-child {
+    background-color: orange;
+}
+#cartao:hover {
+    color: aliceblue;
+    background-color: rgb(13, 13, 56);
+    transform: scale(1.2)
+}
+#cartao h1::first-letter {
+    color: red;
+}
+#cartao p::after{
+    content: "👍";
+}
+input:focus{
+    background-color: aquamarine;
+}
