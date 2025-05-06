@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+}
+#grad {
+    width: 200px;
+    height: 100px;
+    z-index: 1;
+    position: absolute;
+    background-image: linear-gradient(to right, blue 0%, white 33%, white 66%, red 100%);
+}
+/* Você também pode colocar uma angulação em graus; em DEG */
+#grad:hover{
+    transform: translate(600px, 400px) rotate(180deg) scale(2) skew(20deg, 10deg);
+    transition: 5s;
+     /* translate: move o elemento  */
+     /* rotate: rotaciona o elemento */
+     /* scale: aumenta em escala */
+     /* skew: deforma o objeto; */
+}
+#vazio{
+    width: 200px;
+    height: 100px;
+    border: solid 1px black;
+    position: absolute;
+    z-index: 0;
+}
+.germany {
+    background-image: linear-gradient(to bottom, black 0%, rgb(59, 0, 0) 30%, red 40%, yellow 80%, yellow 100%);
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    animation-name: mover;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+@keyframes mover {
+    0% {margin-left: -300px; background-image: transparent;}
+    90% {margin-left: 100vw;}
+    100% {margin-left: 200px;}
+}
+
