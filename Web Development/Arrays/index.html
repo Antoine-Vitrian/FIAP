@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Título</title>
+</head>
+<body>
+
+    <h2>Digite um título para o h1:</h2>
+    <form id="formulario" onsubmit="adicionarH1(event)">
+        <input type="text" id="texto" placeholder="Digite o texto aqui" required>
+        <button type="submit">Enviar</button>
+    </form>
+
+    <div id="resultados"></div>
+
+    <script>
+        function adicionarH1(event) {
+            // Evita o comportamento padrão de envio do formulário (que recarrega a página)
+            event.preventDefault();
+            
+            // Captura o valor do campo de texto
+            const texto = document.getElementById("texto").value;
+            
+            // Cria o elemento h1
+            const h1 = document.createElement("h1");
+            h1.textContent = texto;  // Define o texto do h1
+
+            // Adiciona o novo h1 ao elemento de resultados
+            document.getElementById("resultados").appendChild(h1);
+            
+            // Limpa o campo de entrada após o envio
+            document.getElementById("texto").value = "";
+        }
+    </script>
+
+</body>
+</html>
