@@ -1,0 +1,22 @@
+*{
+    background-color: black;
+}
+.caixa-branca {
+    background-color: white;
+    border: solid 2px yellow;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 30vw;
+}
+.caixa-wrap {
+    width: 100px;
+    height: 100px;
+    background-color: orangered;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}

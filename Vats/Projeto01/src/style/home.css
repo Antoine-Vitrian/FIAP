@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+}
+header{
+    display: flex;
+    width: 100%;
+    height: 70px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(34, 34, 34); 
+}
+.title {
+    margin-bottom: 20px;
+}
+.title i{
+    color: aliceblue;
+    font-size: 50px;
+    padding-left: 10px;
+}
+.title::first-letter{
+    color: rgb(0, 238, 238);
+    font-size: 70px;
+}
+nav {
+    font-size: 24px;
+    display: flex;
+    gap: 40px;
+}
+nav a {
+    text-decoration: none;
+    color: rgb(0, 238, 238);
+}
