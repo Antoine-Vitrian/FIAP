@@ -1,4 +1,4 @@
-# Importação de bibliotecas necessáriasclear
+# Importação de bibliotecas necessárias
 import random
 
 # Lista de times
@@ -42,7 +42,7 @@ def campeonato_mata_mata():
     times_esc = 0
     print("")
     # Escolha dos Times
-    while times_esc < 2:
+    while times_esc < 8:
         escolha = input(f"{times_esc + 1}° Time: ")
         # Verifica se o time é válido
         if escolha not in(times_de_futebol):
@@ -55,7 +55,60 @@ def campeonato_mata_mata():
     for time in range(len(times_esc_salvos)):
         esc_ale = times_esc_salvos.pop(random.randrange(len(times_esc_salvos)))
         times_sort.append(esc_ale)
-    
+
+    espaco = ""
+    # Sorteio com chaveamento no print
+    print(f'''
+            Quartas
+ ---------------------------- 
+ | {times_sort[0].ljust(20)} |   |
+ -------------------------------------
+ | {times_sort[1].ljust(20)} |   |        |         ----------------------------
+ ----------------------------        |         | {espaco.ljust(20)} |   |
+                                     ------------------------------------------------
+ ----------------------------        |         | {espaco.ljust(20)} |   |         |
+ | {times_sort[2].ljust(20)} |   |        |         ----------------------------         |
+ -------------------------------------                                              |
+ | {times_sort[3].ljust(20)} |   |                                                       |         -----------------------------
+ ----------------------------                                                       |         | {espaco.ljust(20)} |    |
+                                                                                    --------------------------------------
+ ----------------------------                                                       |         | {espaco.ljust(20)} |    |
+ | {times_sort[4].ljust(20)} |   |                                                       |         -----------------------------
+ -------------------------------------                                              |
+ | {times_sort[5].ljust(20)} |   |        |         ----------------------------         |
+ ----------------------------        |         | {espaco.ljust(20)} |   |         |
+                                     ------------------------------------------------
+ ----------------------------        |         | {espaco.ljust(20)} |   |         
+ | {times_sort[6].ljust(20)} |   |        |         ----------------------------                                               
+ -------------------------------------                                                   
+ | {times_sort[7].ljust(20)} |   |                                                            
+ ----------------------------
+''')
+
+    # Avanço para próxima fase
+    print("Sorteie os resultados da próxima fase")
+    input("Pressione qualquer tecla para avançar")
+
+    # Sorteio Resultados
+    result_quartas = []
+    for i in range(8):
+        result_quartas.append(random.randint(1, 5))
+
+    # Conferindo Pênaltis
+    penaltis = []
+    semi = []
+    for i in range(0, len(result_quartas), 2):
+        if result_quartas[i] == result_quartas[i+1]:
+            print("Penaltis")
+        else:
+            penaltis.append("")
+            semi.append
+
+
+
+
+# campeonato_mata_mata()
+
     
 
     
