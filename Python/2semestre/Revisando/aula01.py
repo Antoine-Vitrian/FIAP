@@ -144,3 +144,8 @@ def tabuada():
     while multiplicador <= 10:
         print(f"{numero}x{multiplicador} = {numero*multiplicador}")
         multiplicador += 1
+
+for i in range(1,11,1):
+    for j in range(11):
+        print(f"{i}x{j} = {i*j}")
+    print("")
