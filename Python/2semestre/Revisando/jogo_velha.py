@@ -47,7 +47,8 @@ Na sua vez você precisa digitar o índice do local do tabuleiro conforme a tabe
     | 7 | 8 | 9 |
     -------------
 ''')
-
-jogada1 = conferir_jogada()
+jogadas = 0
+while True:
+    jogada1 = conferir_jogada()
 
 
