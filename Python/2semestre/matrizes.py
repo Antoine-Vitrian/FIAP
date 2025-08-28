@@ -15,7 +15,7 @@ def criar_matrizes(linhas, colunas):
     for i in range(linhas):
         linha = []
         for j in range(colunas):
-            # coluna = random.randint(1, 100)
+            coluna = random.randint(1, 100)
             linha.append(0)
         matriz.append(linha)
     return matriz
