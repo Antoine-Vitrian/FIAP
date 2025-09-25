@@ -1,4 +1,5 @@
 import pandas as pd
+import requests
 
 # defs
 def forca_opcao(msg,lista_opcoes):
@@ -50,7 +51,32 @@ def update(lista, lista_key):
             pass
     return
 
+def verifica_numero(msg):
+    num = input(msg)
+    while not num.isnumeric():
+        num = input(msg)
+    return int(num)
 
+def comprar():
+    item = forca_opcao("Qual item você quer comprar?\n-> ", acougue['Carnes'])
+    indice_item = indices[item]
+    for key in acougue.keys():
+        print|(f"{key}: {acougue[key][indice_item]}")
+    continuar = forca_opcao("Você quer continuar? ", ["sim", "não"])
+    if continuar == "não":
+        return
+    qtd = verifica_numero(f"Quantos kg de {item}? ")
+    for key in acougue
+    if qtd <= acougue['Estoque'][i]:
+        acougue['Estoque'][indice_item] -= qtd
+        carrinho['Valor Total'] += qtd*acougue['R$/kg'][indice_item]
+        if item not in carrinho['Itens'].keys():
+            carrinho['Itens'][item] = qtd
+        else:
+            carrinho['Itens'][item] += qtd
+    else:
+        print(f"Só há {acougue['Estoque'][indice_item]}kg no estoque")
+        comprar()
 
 
 
@@ -66,23 +92,47 @@ dic_crud = {
 }
 indices = cria_indice(acougue['Carnes'])
 
-while True:
-    print(pd.DataFrame(acougue))
-    escolha = forca_opcao("Escolha uma opção\n", dic_crud['opcoes'])
+carrinho = {
+    "Endereço": {
+        "Rua": "",
+        "Bairro": "",
+        "N°": "",
+        "CEP": "",
+    },
+    "Itens": {},
+    "Valor Total": 0,
+}
+def endereco():
+    while True:
+        cep = input("Diga seu CEP´: ")
+        endereco = requests.get(f"https://viacep.com.br/ws/{cep}/json")
+        if endereco.status_code == 200:
+            carrinho['Endereço'] = endereco.json()
+            carrinho['Endereço']["N°"] = input("Número de residência: ")
+            carrinho['Endereço']["Complemento"] = input("Complemento: ")
+            break
+        else:
+            print("Cep inválido")
 
-    if escolha == 'Create':
-        create(acougue)
-        indice = cria_indice()
-    elif escolha == 'Read':
-        esc = forca_opcao("Lista de carnes\n",acougue['Carnes'])
-        indice_esc = acha_indice(acougue['Carnes'],escolha)
-        read(acougue,indice_esc)
-    elif escolha == 'Update':
-        update(acougue, acougue['Carnes'])
-    elif escolha == 'Delete':
-        delete(acougue)
-        indice = cria_indice()
+print("Bem vindo à açougueria Agnello!!!")
+usuario = forca_opcao("Você é cliente ou funcionário", ['cliente', 'funcionário'])
+while True:
+    if usuario == "funcionário":
+        operacao = forca_opcao("Qual operação será realizada? ", ["cadastrar", "remover", "atualizar"])
+        if operacao == 'cadastrar':
+            create()
+        elif operacao == "remover":
+            delete()
+        else:
+            update()
+        continuar = forca_opcao("Você gostaria de continuar? ", ['sim','não'])
+        if continuar == "não":
+            break
     else:
-        break
+        comprar()
+        encerrar = forca_opcao("Encerrar compra?", ["sim","não"])
+        if encerrar == "sim":
+            break
+
     
 
