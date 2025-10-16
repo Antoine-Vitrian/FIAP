@@ -132,3 +132,61 @@ mostra_matriz(matriz01)
 
 
 
+def indice_menor(lista):
+    indice = 0
+    for i in range(len(lista)):
+        if lista[i] < lista[indice]:
+            indice = i
+    return indice
+
+def selection_sort(lista):
+    cont = 0
+    for i in range(len(lista)):
+        local_menor = indice_menor(lista[i:]) + i
+        aux = lista[i]
+        lista[i] = lista[local_menor]
+        lista[local_menor] = aux
+        print(lista)
+        '''menor = lista.pop(local_menor)
+        lista_ord.append(menor)'''
+    return lista
+
+lista = [6,5,2,1,7,3,4]
+lista_ord = []
+
+
+ord = selection_sort(lista)
+print(ord)
+
+'''while len(lista) != 0:
+    indice_menor = 0
+    menor = lista[0]
+    for i in range(len(lista)):
+        if lista[i] < menor:
+            menor = lista[i]
+            indice_menor = i
+    lista_ord.append(menor)
+    lista.pop(indice_menor)
+print(lista)
+print(lista_ord)'''
+
+
+numero = 25
+num= numero/2
+print(num)
+cont = 0
+while num**2 != numero:
+    num_anterior = num
+    if num**2 > numero:
+        n_maior = num
+        if cont == 0:
+            num /= 2
+        else:
+            num = (n_menor + num) / 2
+    elif num**2 < numero:
+        cont = 1
+        n_menor = num
+        num = (n_maior + num) / 2
+    else:
+        break
+    print(num)
