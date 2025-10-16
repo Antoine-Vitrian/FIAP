@@ -190,3 +190,26 @@ while num**2 != numero:
     else:
         break
     print(num)
+
+
+
+
+'''
+chute = (ini + fim) / 2
+if chute > num:
+    fim = chute
+else:
+    ini = chute
+'''
+num = 25
+fim = num
+ini = 0
+while num**2 != num:
+    chute = (ini + fim) / 2
+    if chute**2 > num:
+        fim = chute
+    elif chute**2 < num:
+        ini = chute
+    else:
+        break
+    print(chute)
