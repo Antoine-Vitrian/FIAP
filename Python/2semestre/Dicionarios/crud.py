@@ -66,7 +66,7 @@ def comprar():
     if continuar == "não":
         return
     qtd = verifica_numero(f"Quantos kg de {item}? ")
-    for key in acougue
+    for key in acougue:
     if qtd <= acougue['Estoque'][i]:
         acougue['Estoque'][indice_item] -= qtd
         carrinho['Valor Total'] += qtd*acougue['R$/kg'][indice_item]
