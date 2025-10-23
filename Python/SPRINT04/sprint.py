@@ -2,156 +2,178 @@
 import json
 
 # Abre o arquivo fut.json no modo de leitura ('r')
-# O 'with open' garante que o arquivo seja fechado automaticamente após o uso
-with open('fut.json', 'r') as arquivo:
-    # Carrega o conteúdo do arquivo JSON para uma variável Python (dicionário)
+with open(r"C:\Users\victo\FIAP\Python\SPRINT04\fut.json", 'r', encoding='utf-8') as arquivo:
     dados = json.load(arquivo)
+
+# ------------------ Funções de entrada ------------------
 
 def forca_opcao(lista, msg):
     escolha = input(msg)
     while escolha not in lista:
-        print("Não existe esta opção!!!")
+        print("❌ Não existe esta opção!")
         escolha = input(msg)
     return escolha
 
-# Funções Admin
-def acha_indice(lista,elem):
-    for i in range(len(lista)):
-        if lista[i] == elem:
-            return i
-        
-def cria_indice(lista):
+def forca_opcao_int(msg, limite):
+    """Força o usuário a digitar um número inteiro dentro do intervalo."""
+    while True:
+        try:
+            escolha = int(input(msg))
+            if 0 <= escolha < limite:
+                return escolha
+            else:
+                print("❌ Índice fora do intervalo!")
+        except ValueError:
+            print("❌ Por favor, digite um número válido!")
+
+# ------------------ Funções de utilidade ------------------
+
+def cria_indice(lista, chave):
+    """Cria um dicionário de índices baseado em um campo do JSON."""
     indices = {}
-    for i in range(len(lista)):
-        indices[lista[i]] = i
+    for i, item in enumerate(lista):
+        indices[i] = item[chave]
     return indices
 
-# Adicionar algo no Json
+# ------------------ Funções Admin ------------------
+
 def add(lista):
-    for key in lista.keys():
+    """Adiciona um novo item a uma lista de dicionários."""
+    novo_item = {}
+    for key in lista[0].keys():
         info = input(f"Diga o novo {key}: ")
-        lista[key].append(info)
-    return
+        novo_item[key] = info
+    lista.append(novo_item)
+    print("✅ Item adicionado com sucesso!")
 
-# Deleta algo no Json
-def delete(lista, msg, lista_opcoes):
-    escolha = forca_opcao(msg, lista_opcoes)
-    indice_esc = indices[escolha]
-    for key in lista.keys():
-        lista[key].pop(indice_esc)
-    return
+def delete(lista):
+    """Remove um item da lista baseado no índice."""
+    for i, item in enumerate(lista):
+        print(f"{i}. {list(item.values())[0]}")  # Mostra o primeiro campo como identificador
+    indice = forca_opcao_int("Digite o índice do item que deseja excluir: ", len(lista))
+    removido = lista.pop(indice)
+    print(f"🗑️  Item removido: {removido}")
 
-# Edita algo no Json
-def edit(lista, lista_key):
-    escolha = forca_opcao("Lista de carnes\n",lista_key)
-    indice_item = indices[escolha]
-    for i in lista.keys():
-        esc = forca_opcao(f"Gostaria de atualizar {i}\n- ",["s","n"])
-        if esc == "s":
-            novo_valor = input("Digite o novo valor\n-> ")
-            lista[i][indice_item] = novo_valor
-        else:
-            pass
-    return
+def edit(lista):
+    """Edita um item da lista baseado no índice."""
+    for i, item in enumerate(lista):
+        print(f"{i}. {list(item.values())[0]}")
+    indice = forca_opcao_int("Digite o índice do item que deseja editar: ", len(lista))
 
-# Vê algo no Json
+    print("Digite os novos valores (pressione Enter para manter o valor atual):")
+    for key in lista[indice].keys():
+        novo_valor = input(f"{key} ({lista[indice][key]}): ")
+        if novo_valor.strip():
+            lista[indice][key] = novo_valor
+
+    print("✏️  Item atualizado com sucesso!")
+
 def view(lista, indice):
-    for i in lista.keys():
-        print(f"{i}: {lista[i][indice]}")
-    return
+    """Mostra as informações completas de um item da lista."""
+    item = lista[indice]
+    print("📰 Detalhes:")
+    for chave, valor in item.items():
+        print(f"{chave}: {valor}")
+    print()
 
-# Funções usuário
-# Reutilizar funções de ver jogos e noticias
+# ------------------ Menus ------------------
 
-indices = cria_indice(dados['jogo'])
-indice_not = cria_indice(dados['noticias'])
+contas = ["usuário", "administrador"]
 
-contas = ["usuário","administrador"]
 menuAdmin = {
     "opções": ["Adicionar", "Deletar", "Editar", "Visualizar", "Sair"]
 }
+
 menuUser = {
-    "opções": ["Jogos","Notícias","Sair"]
+    "opções": ["Jogos", "Notícias", "Sair"]
 }
 
 menuView = {
     "opções": ["Jogos", "Notícias"]
 }
 
-print("Bem vindo ao sistema do Passa Bola!!!")
+# ------------------ Execução principal ------------------
+
+print("⚽ Bem-vindo ao sistema do Passa Bola!!! ⚽")
 pessoa = forca_opcao(contas, "Você é usuário ou administrador?\n-> ")
 
 # Área do Usuário
 if pessoa == "usuário":
-    # Loop principal User
     while True:
-        # Mostrando Menu User
-        for i in range(len(menuUser["opções"])):
-            print(f"{i}.{menuUser['opções'][i]}")
-        # Escolha de uma das opções do menu
-        opcao = forca_opcao(menuUser["opções"], "Escolha uma das opções\n-> ")
-        # Visualização de Jogos
+        print("\n--- MENU USUÁRIO ---")
+        for i, opcao in enumerate(menuUser["opções"]):
+            print(f"{i}. {opcao}")
+
+        opcao = forca_opcao(menuUser["opções"], "Escolha uma opção (digite o nome):\n-> ")
+
         if opcao == "Jogos":
-            for i in range(len(dados['jogos'])):
-                print(f"{i}. {dados['jogos'][i]['time_casa']} x {dados['jogos'][i]['time_visitante']}")
-            jogo = forca_opcao(indices,"Escolha uma das opções\n-> ")
+            print("\n=== JOGOS ===")
+            for i, jogo in enumerate(dados['jogos']):
+                print(f"{i}. {jogo['time_casa']} x {jogo['time_visitante']}")
+            jogo = forca_opcao_int("Escolha um jogo pelo índice:\n-> ", len(dados['jogos']))
             view(dados['jogos'], jogo)
-        # Visualização de Notícias
-        if opcao == "Notícias":
-            for i in range(len(dados['noticias'])):
-                print(f"{i}. {dados['noticias'][i]['titulo']}")
-            noticia = forca_opcao(indice_not,"Escolha uma das opções\n-> ")
+
+        elif opcao == "Notícias":
+            print("\n=== NOTÍCIAS ===")
+            for i, noticia in enumerate(dados['noticias']):
+                print(f"{i}. {noticia['titulo']}")
+            noticia = forca_opcao_int("Escolha uma notícia pelo índice:\n-> ", len(dados['noticias']))
             view(dados['noticias'], noticia)
-        # Saindo do Programa
+
         else:
             break
 
 # Área do Administrador
 else:
-    # Loop principal Admin
     while True:
-        indices = cria_indice(dados['jogo'])
-        indice_not = cria_indice(dados['noticias'])
-        # Mostrando Menu Admin
-        for i in range(len(menuAdmin["opções"])):
-            print(f"{i}.{menuAdmin['opções'][i]}")
-        # Escolha de uma das opções do menu
-        opcao = forca_opcao(menuAdmin["opções"], "Escolha uma das opções\n-> ")
-        # Método adicionar
+        print("\n--- MENU ADMIN ---")
+        for i, opcao in enumerate(menuAdmin["opções"]):
+            print(f"{i}. {opcao}")
+
+        opcao = forca_opcao(menuAdmin["opções"], "Escolha uma opção (digite o nome):\n-> ")
+
         if opcao == "Adicionar":
-            add(dados['jogos'])
-        # Método deletar
-        elif opcao == "Deletar":
-            delete()
-
-
-
-
-
-        # Método editar
-        elif opcao == "Editar":
-            edit()
-
-
-
-            
-        # Método visualizar
-        elif opcao == "Visualizar":
-            opcao = forca_opcao(menuView["opções"], "Escolha uma das opções\n-> ")
-            # Visualização de Jogos
-            if opcao == "Jogos":
-                for i in range(len(dados['jogos'])):
-                    print(f"{i}. {dados['jogos'][i]['time_casa']} x {dados['jogos'][i]['time_visitante']}")
-                jogo = forca_opcao(indices,"Escolha uma das opções\n-> ")
-                view(dados['jogos'], jogo)
-            # Visualização de Notícias
+            tipo = forca_opcao(menuView["opções"], "Quer adicionar em Jogos ou Notícias?\n-> ")
+            if tipo == "Jogos":
+                add(dados['jogos'])
             else:
-                for i in range(len(dados['noticias'])):
-                    print(f"{i}. {dados['noticias'][i]['titulo']}")
-                noticia = forca_opcao(indice_not,"Escolha uma das opções\n-> ")
+                add(dados['noticias'])
+
+        elif opcao == "Deletar":
+            tipo = forca_opcao(menuView["opções"], "Quer deletar em Jogos ou Notícias?\n-> ")
+            if tipo == "Jogos":
+                delete(dados['jogos'])
+            else:
+                delete(dados['noticias'])
+
+        elif opcao == "Editar":
+            tipo = forca_opcao(menuView["opções"], "Quer editar em Jogos ou Notícias?\n-> ")
+            if tipo == "Jogos":
+                edit(dados['jogos'])
+            else:
+                edit(dados['noticias'])
+
+        elif opcao == "Visualizar":
+            tipo = forca_opcao(menuView["opções"], "Quer ver Jogos ou Notícias?\n-> ")
+            if tipo == "Jogos":
+                print("\n=== JOGOS ===")
+                for i, jogo in enumerate(dados['jogos']):
+                    print(f"{i}. {jogo['time_casa']} x {jogo['time_visitante']}")
+                jogo = forca_opcao_int("Escolha um jogo pelo índice:\n-> ", len(dados['jogos']))
+                view(dados['jogos'], jogo)
+            else:
+                print("\n=== NOTÍCIAS ===")
+                for i, noticia in enumerate(dados['noticias']):
+                    print(f"{i}. {noticia['titulo']}")
+                noticia = forca_opcao_int("Escolha uma notícia pelo índice:\n-> ", len(dados['noticias']))
                 view(dados['noticias'], noticia)
-        # Saindo do Programa
+
         else:
             break
 
-print("Saindo do programa...")
+# ------------------ Salvando alterações ------------------
+
+with open(r"C:\Users\victo\FIAP\Python\SPRINT04\fut.json", 'w', encoding='utf-8') as arquivo:
+    json.dump(dados, arquivo, ensure_ascii=False, indent=4)
+
+print("👋 Saindo do programa... Alterações salvas com sucesso!")

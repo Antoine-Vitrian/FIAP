@@ -1,66 +1,66 @@
 {
-  "noticias": [
-    {
-      "titulo": "Seleção Brasileira Feminina vence amistoso contra a Espanha",
-      "texto": "Em uma grande atuação coletiva, o Brasil derrotou a Espanha por 3 a 1 em amistoso realizado em Madrid. Marta e Bia Zaneratto marcaram os gols da vitória."
-    },
-    {
-      "titulo": "Campeonato Brasileiro Feminino terá novo formato em 2026",
-      "texto": "A CBF anunciou que o Brasileirão Feminino contará com 18 equipes e fases de mata-mata mais curtas para aumentar a competitividade do torneio."
-    },
-    {
-      "titulo": "Corinthians conquista o tetracampeonato do Brasileirão Feminino",
-      "texto": "O Corinthians derrotou o Internacional na final e garantiu o quarto título nacional consecutivo, consolidando sua hegemonia no futebol feminino brasileiro."
-    },
-    {
-      "titulo": "Investimento em categorias de base cresce no futebol feminino",
-      "texto": "Clubes de todo o país estão ampliando os investimentos nas categorias de base femininas, com o objetivo de revelar novas jogadoras para a Seleção."
-    },
-    {
-      "titulo": "FIFA anuncia aumento no prêmio da Copa do Mundo Feminina",
-      "texto": "A entidade máxima do futebol revelou que a premiação da próxima Copa do Mundo Feminina será 60% maior, em comparação à edição anterior."
-    },
-    {
-      "titulo": "Debinha entra no top 10 de artilheiras históricas da Seleção",
-      "texto": "Com o gol marcado contra a França, Debinha alcançou a marca de 65 gols pela Seleção Brasileira, entrando para o seleto grupo das maiores artilheiras do país."
-    }
-  ],
-  "jogos": [
-    {
-      "time_casa": "Corinthians Feminino",
-      "time_visitante": "Santos Feminino",
-      "gols_casa": 2,
-      "gols_fora": 2
-    },
-    {
-      "time_casa": "Palmeiras Feminino",
-      "time_visitante": "São Paulo Feminino",
-      "gols_casa": 2,
-      "gols_fora": 4
-    },
-    {
-      "time_casa": "Internacional Feminino",
-      "time_visitante": "Grêmio Feminino",
-      "gols_casa": 0,
-      "gols_fora": 1
-    },
-    {
-      "time_casa": "Flamengo Feminino",
-      "time_visitante": "Botafogo Feminino",
-      "gols_casa": 1,
-      "gols_fora": 1
-    },
-    {
-      "time_casa": "Cruzeiro Feminino",
-      "time_visitante": "Atlético Mineiro Feminino",
-      "gols_casa": 2,
-      "gols_fora": 2
-    },
-    {
-      "time_casa": "Real Brasília Feminino",
-      "time_visitante": "Kindermann Feminino",
-      "gols_casa": 1,
-      "gols_fora": 0
-    }
-  ]
+    "noticias": [
+        {
+            "titulo": "Seleção Brasileira Feminina vence amistoso contra a Espanha",
+            "texto": "Em uma grande atuação coletiva, o Brasil derrotou a Espanha por 3 a 1 em amistoso realizado em Madrid. Marta e Bia Zaneratto marcaram os gols da vitória."
+        },
+        {
+            "titulo": "Campeonato Brasileiro Feminino terá novo formato em 2026",
+            "texto": "A CBF anunciou que o Brasileirão Feminino contará com 18 equipes e fases de mata-mata mais curtas para aumentar a competitividade do torneio."
+        },
+        {
+            "titulo": "Corinthians conquista o tetracampeonato do Brasileirão Feminino",
+            "texto": "O Corinthians derrotou o Internacional na final e garantiu o quarto título nacional consecutivo, consolidando sua hegemonia no futebol feminino brasileiro."
+        },
+        {
+            "titulo": "Investimento em categorias de base cresce no futebol feminino",
+            "texto": "Clubes de todo o país estão ampliando os investimentos nas categorias de base femininas, com o objetivo de revelar novas jogadoras para a Seleção."
+        },
+        {
+            "titulo": "FIFA anuncia aumento no prêmio da Copa do Mundo Feminina",
+            "texto": "A entidade máxima do futebol revelou que a premiação da próxima Copa do Mundo Feminina será 60% maior, em comparação à edição anterior."
+        },
+        {
+            "titulo": "Debinha entra no top 10 de artilheiras históricas da Seleção",
+            "texto": "Com o gol marcado contra a França, Debinha alcançou a marca de 65 gols pela Seleção Brasileira, entrando para o seleto grupo das maiores artilheiras do país."
+        }
+    ],
+    "jogos": [
+        {
+            "time_casa": "Corinthians Feminino",
+            "time_visitante": "Santos Feminino",
+            "gols_casa": 2,
+            "gols_fora": 2
+        },
+        {
+            "time_casa": "Palmeiras Feminino",
+            "time_visitante": "São Paulo Feminino",
+            "gols_casa": 2,
+            "gols_fora": 4
+        },
+        {
+            "time_casa": "Internacional Feminino",
+            "time_visitante": "Grêmio Feminino",
+            "gols_casa": 0,
+            "gols_fora": 1
+        },
+        {
+            "time_casa": "Flamengo Feminino",
+            "time_visitante": "Botafogo Feminino",
+            "gols_casa": 1,
+            "gols_fora": 1
+        },
+        {
+            "time_casa": "Cruzeiro Feminino",
+            "time_visitante": "Atlético Mineiro Feminino",
+            "gols_casa": 2,
+            "gols_fora": 2
+        },
+        {
+            "time_casa": "Real Brasília Feminino",
+            "time_visitante": "Kindermann Feminino",
+            "gols_casa": 1,
+            "gols_fora": 0
+        }
+    ]
 }
